@@ -9,7 +9,7 @@ function rm() {
 		if [[ $i =~ ".py" ]] || [[ $i =~ ".sh" ]];then
 			echo "file not deleted"
 		else
-		
+
 			if [[ -z $1 ]] ;then
 					echo 'Missing Args'
 				return
