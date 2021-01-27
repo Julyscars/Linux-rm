@@ -1,0 +1,21 @@
+function rm() {
+    
+    # add new folder
+    prefix=$(date +%Y_%m_%d)
+    hour=$(date +%H)
+    mkdir -p $HOME/.trash/$prefix/$hour
+    
+	for i in $(ls $*);do
+		if [[ $i =~ ".py" ]] || [[ $i =~ ".sh" ]];then
+			echo "file not deleted"
+		else
+		
+			if [[ -z $1 ]] ;then
+					echo 'Missing Args'
+				return
+			fi
+			echo "Trashing "$1
+			mv $1 $HOME/.trash/$prefix/$hour
+		fi
+	done
+}
